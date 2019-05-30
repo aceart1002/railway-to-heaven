@@ -1,0 +1,116 @@
+---- Minecraft Crash Report ----
+// Surprise! Haha. Well, this is awkward.
+
+Time: 5/21/19 4:10 PM
+Description: Tesselating block model
+
+java.lang.NullPointerException: Tesselating block model
+	at com.github.lunatrius.schematica.client.renderer.SchematicRenderCache.getBlockState(SchematicRenderCache.java:21)
+	at net.minecraftforge.client.model.pipeline.BlockInfo.updateLightMatrix(BlockInfo.java:125)
+	at net.minecraftforge.client.model.pipeline.VertexLighterSmoothAo.updateBlockInfo(VertexLighterSmoothAo.java:178)
+	at net.minecraftforge.client.model.pipeline.ForgeBlockModelRenderer.render(ForgeBlockModelRenderer.java:116)
+	at net.minecraftforge.client.model.pipeline.ForgeBlockModelRenderer.renderModelSmooth(ForgeBlockModelRenderer.java:85)
+	at net.minecraft.client.renderer.BlockModelRenderer.renderModel(BlockModelRenderer.java:47)
+	at net.minecraft.client.renderer.BlockModelRenderer.renderModel(BlockModelRenderer.java:38)
+	at net.minecraft.client.renderer.BlockRendererDispatcher.renderBlock(BlockRendererDispatcher.java:80)
+	at net.minecraft.client.renderer.chunk.RenderChunk.rebuildChunk(RenderChunk.java:203)
+	at com.github.lunatrius.schematica.client.renderer.chunk.proxy.SchematicRenderChunkVbo.rebuildChunk(SchematicRenderChunkVbo.java:51)
+	at net.minecraft.client.renderer.chunk.ChunkRenderWorker.processTask(ChunkRenderWorker.java:122)
+	at net.minecraft.client.renderer.chunk.ChunkRenderWorker.run(ChunkRenderWorker.java:50)
+	at java.lang.Thread.run(Thread.java:748)
+
+
+A detailed walkthrough of the error, its code path and all known details is as follows:
+---------------------------------------------------------------------------------------
+
+-- Head --
+Thread: Client thread
+Stacktrace:
+	at com.github.lunatrius.schematica.client.renderer.SchematicRenderCache.getBlockState(SchematicRenderCache.java:21)
+	at net.minecraftforge.client.model.pipeline.BlockInfo.updateLightMatrix(BlockInfo.java:125)
+	at net.minecraftforge.client.model.pipeline.VertexLighterSmoothAo.updateBlockInfo(VertexLighterSmoothAo.java:178)
+	at net.minecraftforge.client.model.pipeline.ForgeBlockModelRenderer.render(ForgeBlockModelRenderer.java:116)
+	at net.minecraftforge.client.model.pipeline.ForgeBlockModelRenderer.renderModelSmooth(ForgeBlockModelRenderer.java:85)
+
+-- Block model being tesselated --
+Details:
+	Block: minecraft:jukebox[has_record=false]
+	Block location: World: (9,1,2), Chunk: (at 9,0,2 in 0,0; contains blocks 0,0,0 to 15,255,15), Region: (0,0; contains chunks 0,0 to 31,31, blocks 0,0,0 to 511,255,511)
+	Using AO: true
+Stacktrace:
+	at net.minecraft.client.renderer.BlockModelRenderer.renderModel(BlockModelRenderer.java:47)
+	at net.minecraft.client.renderer.BlockModelRenderer.renderModel(BlockModelRenderer.java:38)
+
+-- Block being tesselated --
+Details:
+	Block type: ID #84 (tile.jukebox // net.minecraft.block.BlockJukebox // minecraft:jukebox)
+	Block data value: 0 / 0x0 / 0b0000
+	Block location: World: (9,1,2), Chunk: (at 9,0,2 in 0,0; contains blocks 0,0,0 to 15,255,15), Region: (0,0; contains chunks 0,0 to 31,31, blocks 0,0,0 to 511,255,511)
+Stacktrace:
+	at net.minecraft.client.renderer.BlockRendererDispatcher.renderBlock(BlockRendererDispatcher.java:80)
+	at net.minecraft.client.renderer.chunk.RenderChunk.rebuildChunk(RenderChunk.java:203)
+
+-- Affected level --
+Details:
+	Level name: MpServer
+	All players: 1 total; [EntityPlayerSP['Player75'/112, l='MpServer', x=541.19, y=4.00, z=-1778.02]]
+	Chunk stats: MultiplayerChunkCache: 597, 597
+	Level seed: 0
+	Level generator: ID 01 - flat, ver 0. Features enabled: false
+	Level generator options: 
+	Level spawn location: World: (528,4,-1670), Chunk: (at 0,0,10 in 33,-105; contains blocks 528,0,-1680 to 543,255,-1665), Region: (1,-4; contains chunks 32,-128 to 63,-97, blocks 512,0,-2048 to 1023,255,-1537)
+	Level time: 33284 game time, 6580 day time
+	Level dimension: 0
+	Level storage version: 0x00000 - Unknown?
+	Level weather: Rain time: 0 (now: false), thunder time: 0 (now: false)
+	Level game mode: Game mode: creative (ID 1). Hardcore: false. Cheats: false
+	Forced entities: 71 total; [EntitySlime['Slime'/146312, l='MpServer', x=540.21, y=4.00, z=-1823.32], EntityPig['Pig'/12, l='MpServer', x=461.84, y=4.00, z=-1770.36], EntityPig['Pig'/13, l='MpServer', x=468.26, y=4.00, z=-1763.69], EntitySheep['Sheep'/14, l='MpServer', x=463.01, y=4.00, z=-1770.49], EntitySheep['Sheep'/15, l='MpServer', x=464.36, y=4.00, z=-1743.62], EntitySlime['Slime'/122385, l='MpServer', x=511.45, y=4.00, z=-1731.75], EntitySlime['Slime'/18, l='MpServer', x=492.97, y=4.53, z=-1765.35], EntityPig['Pig'/19, l='MpServer', x=483.81, y=4.00, z=-1754.70], EntityPig['Pig'/20, l='MpServer', x=482.41, y=4.00, z=-1741.70], EntitySlime['Slime'/22934, l='MpServer', x=528.50, y=4.00, z=-1824.80], EntitySlime['Slime'/23, l='MpServer', x=488.26, y=4.00, z=-1714.27], EntityPig['Pig'/25, l='MpServer', x=499.04, y=4.00, z=-1781.19], EntitySlime['Slime'/26, l='MpServer', x=526.66, y=4.33, z=-1746.98], EntitySlime['Slime'/27, l='MpServer', x=498.34, y=4.00, z=-1741.51], EntityPig['Pig'/28, l='MpServer', x=502.44, y=4.00, z=-1720.68], EntityChicken['Chicken'/29, l='MpServer', x=498.27, y=4.00, z=-1712.88], EntityPig['Pig'/30, l='MpServer', x=504.45, y=4.00, z=-1711.20], EntityPlayerSP['Player75'/112, l='MpServer', x=541.19, y=4.00, z=-1778.02], EntityPig['Pig'/34, l='MpServer', x=533.78, y=4.00, z=-1778.28], EntitySlime['Slime'/35, l='MpServer', x=517.01, y=4.00, z=-1758.26], EntitySlime['Slime'/37, l='MpServer', x=520.63, y=4.00, z=-1721.24], EntitySlime['Slime'/38, l='MpServer', x=510.12, y=4.00, z=-1721.66], EntitySlime['Slime'/39, l='MpServer', x=502.97, y=4.00, z=-1699.20], EntitySlime['Slime'/144042, l='MpServer', x=612.76, y=4.00, z=-1765.56], EntitySlime['Slime'/43, l='MpServer', x=535.40, y=4.14, z=-1813.75], EntitySlime['Slime'/44, l='MpServer', x=543.07, y=4.00, z=-1832.19], EntitySlime['Slime'/46, l='MpServer', x=551.74, y=4.08, z=-1821.62], EntitySlime['Slime'/47, l='MpServer', x=542.49, y=4.00, z=-1774.43], EntitySlime['Slime'/48, l='MpServer', x=533.06, y=4.00, z=-1743.46], EntitySlime['Slime'/49, l='MpServer', x=548.28, y=5.17, z=-1737.55], EntitySlime['Slime'/114096, l='MpServer', x=541.36, y=4.00, z=-1816.79], EntityHorse['Horse'/50, l='MpServer', x=539.13, y=4.00, z=-1727.96], EntitySlime['Slime'/130867, l='MpServer', x=488.21, y=4.50, z=-1712.85], EntitySlime['Slime'/51, l='MpServer', x=525.57, y=4.08, z=-1721.95], EntityPig['Pig'/55, l='MpServer', x=547.28, y=4.00, z=-1750.76], EntitySlime['Slime'/57, l='MpServer', x=561.81, y=4.00, z=-1737.68], EntityHorse['Horse'/58, l='MpServer', x=549.62, y=4.00, z=-1727.64], EntityHorse['Horse'/59, l='MpServer', x=548.91, y=4.00, z=-1743.86], EntitySlime['Slime'/60, l='MpServer', x=551.00, y=4.00, z=-1740.75], EntitySlime['Slime'/61, l='MpServer', x=551.07, y=4.95, z=-1729.55], EntitySlime['Slime'/62, l='MpServer', x=556.53, y=4.00, z=-1729.36], EntitySlime['Slime'/124735, l='MpServer', x=552.29, y=4.00, z=-1736.08], EntitySlime['Slime'/63, l='MpServer', x=555.39, y=4.00, z=-1741.81], EntitySlime['Slime'/65, l='MpServer', x=533.00, y=3.14, z=-1701.49], EntitySlime['Slime'/125507, l='MpServer', x=533.61, y=4.00, z=-1814.10], EntitySheep['Sheep'/70, l='MpServer', x=566.32, y=4.00, z=-1787.20], EntitySheep['Sheep'/71, l='MpServer', x=574.72, y=4.00, z=-1744.43], EntitySlime['Slime'/72, l='MpServer', x=589.31, y=4.00, z=-1762.59], EntityPig['Pig'/73, l='MpServer', x=575.17, y=4.00, z=-1739.58], EntitySlime['Slime'/74, l='MpServer', x=566.70, y=4.14, z=-1704.67], EntitySlime['Slime'/75, l='MpServer', x=567.80, y=4.00, z=-1726.50], EntitySlime['Slime'/78410, l='MpServer', x=564.18, y=4.42, z=-1699.89], EntitySlime['Slime'/143305, l='MpServer', x=531.83, y=4.00, z=-1822.99], EntitySlime['Slime'/76, l='MpServer', x=575.55, y=4.00, z=-1715.16], EntitySlime['Slime'/77, l='MpServer', x=533.65, y=4.00, z=-1700.41], EntitySlime['Slime'/6736, l='MpServer', x=494.88, y=4.12, z=-1726.00], EntitySheep['Sheep'/84, l='MpServer', x=583.81, y=4.00, z=-1784.72], EntitySlime['Slime'/85, l='MpServer', x=590.55, y=4.00, z=-1776.16], EntitySlime['Slime'/6873, l='MpServer', x=608.72, y=4.92, z=-1703.65], EntityCow['Cow'/91, l='MpServer', x=601.73, y=4.00, z=-1769.79], EntitySlime['Slime'/79453, l='MpServer', x=476.06, y=4.00, z=-1718.18], EntitySlime['Slime'/93, l='MpServer', x=602.57, y=4.00, z=-1724.51], EntitySlime['Slime'/9309, l='MpServer', x=522.47, y=4.67, z=-1713.87], EntitySlime['Slime'/99, l='MpServer', x=610.50, y=4.92, z=-1790.93], EntitySlime['Slime'/3427, l='MpServer', x=575.77, y=4.00, z=-1712.31], EntitySlime['Slime'/101, l='MpServer', x=615.72, y=4.00, z=-1736.63], EntitySlime['Slime'/102, l='MpServer', x=605.30, y=4.53, z=-1768.43], EntitySlime['Slime'/104, l='MpServer', x=598.29, y=4.33, z=-1713.61], EntitySlime['Slime'/25322, l='MpServer', x=548.75, y=4.14, z=-1733.34], EntitySlime['Slime'/87677, l='MpServer', x=517.18, y=4.00, z=-1842.46], EntitySlime['Slime'/25727, l='MpServer', x=539.38, y=5.08, z=-1811.51]]
+	Retry entities: 0 total; []
+	Server brand: fml,forge
+	Server type: Integrated singleplayer server
+Stacktrace:
+	at net.minecraft.client.multiplayer.WorldClient.addWorldInfoToCrashReport(WorldClient.java:461)
+	at net.minecraft.client.Minecraft.addGraphicsAndWorldToCrashReport(Minecraft.java:2888)
+	at net.minecraft.client.renderer.chunk.ChunkRenderWorker.run(ChunkRenderWorker.java:60)
+	at java.lang.Thread.run(Thread.java:748)
+
+-- System Details --
+Details:
+	Minecraft Version: 1.12.2
+	Operating System: Windows 10 (amd64) version 10.0
+	Java Version: 1.8.0_192, Oracle Corporation
+	Java VM Version: Java HotSpot(TM) 64-Bit Server VM (mixed mode), Oracle Corporation
+	Memory: 204323088 bytes (194 MB) / 915406848 bytes (873 MB) up to 1883242496 bytes (1796 MB)
+	JVM Flags: 0 total; 
+	IntCache: cache: 0, tcache: 0, allocated: 0, tallocated: 0
+	FML: MCP 9.42 Powered by Forge 14.23.5.2768 7 mods loaded, 7 mods active
+	States: 'U' = Unloaded 'L' = Loaded 'C' = Constructed 'H' = Pre-initialized 'I' = Initialized 'J' = Post-initialized 'A' = Available 'D' = Disabled 'E' = Errored
+
+	| State     | ID                | Version      | Source                                    | Signature |
+	|:--------- |:----------------- |:------------ |:----------------------------------------- |:--------- |
+	| UCHIJAAAA | minecraft         | 1.12.2       | minecraft.jar                             | None      |
+	| UCHIJAAAA | mcp               | 9.42         | minecraft.jar                             | None      |
+	| UCHIJAAAA | FML               | 8.0.99.99    | forgeSrc-1.12.2-14.23.5.2768.jar          | None      |
+	| UCHIJAAAA | forge             | 14.23.5.2768 | forgeSrc-1.12.2-14.23.5.2768.jar          | None      |
+	| UCHIJAAAA | railway_to_heaven | 1.0          | bin                                       | None      |
+	| UCHIJAAAA | lunatriuscore     | 1.2.0.42     | LunatriusCore-1.12.2-1.2.0.42.jar         | None      |
+	| UCHIJAAAA | schematica        | 1.8.0.git    | Schematica-1.12.2-1.8.0.git-universal.jar | None      |
+
+	Loaded coremods (and transformers): 
+	GL info: ~~ERROR~~ RuntimeException: No OpenGL context found in the current thread.
+	Launched Version: 1.12.2
+	LWJGL: 2.9.4
+	OpenGL: ~~ERROR~~ RuntimeException: No OpenGL context found in the current thread.
+	GL Caps: Using GL 1.3 multitexturing.
+Using GL 1.3 texture combiners.
+Using framebuffer objects because OpenGL 3.0 is supported and separate blending is supported.
+Shaders are available because OpenGL 2.1 is supported.
+VBOs are available because OpenGL 1.5 is supported.
+
+	Using VBOs: Yes
+	Is Modded: Definitely; Client brand changed to 'fml,forge'
+	Type: Client (map_client.txt)
+	Resource Packs: 
+	Current Language: English (US)
+	Profiler Position: N/A (disabled)
+	CPU: 8x Intel(R) Core(TM) i7-7700HQ CPU @ 2.80GHz

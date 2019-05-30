@@ -1,0 +1,130 @@
+---- Minecraft Crash Report ----
+// Don't be sad, have a hug! <3
+
+Time: 5/24/19 1:04 AM
+Description: Updating screen events
+
+java.lang.NumberFormatException: For input string: ""
+	at java.lang.NumberFormatException.forInputString(NumberFormatException.java:65)
+	at java.lang.Integer.parseInt(Integer.java:592)
+	at java.lang.Integer.parseInt(Integer.java:615)
+	at gui.GuiGenerateRails.makePoints(GuiGenerateRails.java:94)
+	at gui.GuiGenerateRails.actionPerformed(GuiGenerateRails.java:103)
+	at net.minecraft.client.gui.GuiScreen.mouseClicked(GuiScreen.java:494)
+	at gui.GuiGenerateRails.mouseClicked(GuiGenerateRails.java:127)
+	at net.minecraft.client.gui.GuiScreen.handleMouseInput(GuiScreen.java:611)
+	at net.minecraft.client.gui.GuiScreen.handleInput(GuiScreen.java:576)
+	at net.minecraft.client.Minecraft.runTick(Minecraft.java:1885)
+	at net.minecraft.client.Minecraft.runGameLoop(Minecraft.java:1187)
+	at net.minecraft.client.Minecraft.run(Minecraft.java:441)
+	at net.minecraft.client.main.Main.main(Main.java:118)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at net.minecraft.launchwrapper.Launch.launch(Launch.java:135)
+	at net.minecraft.launchwrapper.Launch.main(Launch.java:28)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at net.minecraftforge.gradle.GradleStartCommon.launch(GradleStartCommon.java:97)
+	at GradleStart.main(GradleStart.java:25)
+
+
+A detailed walkthrough of the error, its code path and all known details is as follows:
+---------------------------------------------------------------------------------------
+
+-- Head --
+Thread: Client thread
+Stacktrace:
+	at java.lang.NumberFormatException.forInputString(NumberFormatException.java:65)
+	at java.lang.Integer.parseInt(Integer.java:592)
+	at java.lang.Integer.parseInt(Integer.java:615)
+	at gui.GuiGenerateRails.makePoints(GuiGenerateRails.java:94)
+	at gui.GuiGenerateRails.actionPerformed(GuiGenerateRails.java:103)
+	at net.minecraft.client.gui.GuiScreen.mouseClicked(GuiScreen.java:494)
+	at gui.GuiGenerateRails.mouseClicked(GuiGenerateRails.java:127)
+	at net.minecraft.client.gui.GuiScreen.handleMouseInput(GuiScreen.java:611)
+	at net.minecraft.client.gui.GuiScreen.handleInput(GuiScreen.java:576)
+
+-- Affected screen --
+Details:
+	Screen name: gui.GuiGenerateRails
+
+-- Affected level --
+Details:
+	Level name: MpServer
+	All players: 1 total; [EntityPlayerSP['Player744'/57, l='MpServer', x=1774.04, y=4.00, z=-251.07]]
+	Chunk stats: MultiplayerChunkCache: 621, 621
+	Level seed: 0
+	Level generator: ID 01 - flat, ver 0. Features enabled: false
+	Level generator options: 
+	Level spawn location: World: (528,4,-1670), Chunk: (at 0,0,10 in 33,-105; contains blocks 528,0,-1680 to 543,255,-1665), Region: (1,-4; contains chunks 32,-128 to 63,-97, blocks 512,0,-2048 to 1023,255,-1537)
+	Level time: 108768 game time, 1155 day time
+	Level dimension: 0
+	Level storage version: 0x00000 - Unknown?
+	Level weather: Rain time: 0 (now: false), thunder time: 0 (now: false)
+	Level game mode: Game mode: creative (ID 1). Hardcore: false. Cheats: false
+	Forced entities: 51 total; [EntitySlime['Slime'/38799, l='MpServer', x=1747.77, y=4.28, z=-318.55], EntitySlime['Slime'/51243, l='MpServer', x=1784.21, y=4.00, z=-205.62], EntitySlime['Slime'/55725, l='MpServer', x=1706.07, y=4.33, z=-235.33], EntityCreeper['Creeper'/176, l='MpServer', x=1792.84, y=4.00, z=-187.30], EntitySlime['Slime'/177, l='MpServer', x=1806.11, y=4.00, z=-198.05], EntityItem['item.item.bone'/179, l='MpServer', x=1791.29, y=4.00, z=-309.10], EntityItem['item.item.arrow'/180, l='MpServer', x=1776.10, y=4.00, z=-313.56], EntityCreeper['Creeper'/181, l='MpServer', x=1783.50, y=4.00, z=-288.50], EntityCreeper['Creeper'/182, l='MpServer', x=1784.61, y=4.00, z=-274.80], EntityItem['item.item.arrow'/185, l='MpServer', x=1796.00, y=4.00, z=-296.54], EntitySlime['Slime'/8122, l='MpServer', x=1784.26, y=4.50, z=-206.72], EntityItem['item.item.bone'/186, l='MpServer', x=1796.38, y=4.00, z=-295.59], EntitySpider['Spider'/187, l='MpServer', x=1794.00, y=4.00, z=-284.05], EntityCreeper['Creeper'/188, l='MpServer', x=1804.50, y=4.00, z=-277.50], EntityItem['item.item.rottenFlesh'/189, l='MpServer', x=1796.89, y=4.00, z=-282.96], EntityCreeper['Creeper'/190, l='MpServer', x=1806.17, y=4.00, z=-266.82], EntityItem['item.item.arrow'/191, l='MpServer', x=1804.12, y=4.00, z=-267.35], EntityItem['item.item.bone'/192, l='MpServer', x=1803.79, y=4.00, z=-267.75], EntityCreeper['Creeper'/193, l='MpServer', x=1819.50, y=4.00, z=-241.50], EntityItem['item.item.arrow'/194, l='MpServer', x=1820.95, y=4.00, z=-243.45], EntityItem['item.item.bone'/195, l='MpServer', x=1821.25, y=4.00, z=-243.07], EntitySpider['Spider'/196, l='MpServer', x=1812.50, y=4.00, z=-267.50], EntityItem['item.item.rottenFlesh'/197, l='MpServer', x=1820.72, y=4.00, z=-225.73], EntityItem['item.item.rottenFlesh'/198, l='MpServer', x=1808.46, y=4.00, z=-230.70], EntitySlime['Slime'/57416, l='MpServer', x=1778.35, y=4.08, z=-193.08], EntitySlime['Slime'/9806, l='MpServer', x=1796.83, y=4.42, z=-188.19], EntityItem['item.item.rottenFlesh'/79, l='MpServer', x=1721.88, y=4.00, z=-310.78], EntityCreeper['Creeper'/80, l='MpServer', x=1725.17, y=4.00, z=-298.60], EntitySpider['Spider'/81, l='MpServer', x=1727.50, y=4.00, z=-294.50], EntityItem['item.item.rottenFlesh'/82, l='MpServer', x=1726.12, y=4.00, z=-298.08], EntityItem['item.item.rottenFlesh'/83, l='MpServer', x=1721.77, y=4.00, z=-292.90], EntitySpider['Spider'/86, l='MpServer', x=1697.94, y=4.00, z=-261.52], EntitySlime['Slime'/87, l='MpServer', x=1706.85, y=4.00, z=-268.53], EntityEnderman['Enderman'/93, l='MpServer', x=1741.50, y=4.00, z=-318.50], EntityEnderman['Enderman'/94, l='MpServer', x=1740.38, y=4.00, z=-317.64], EntityItem['item.item.arrow'/95, l='MpServer', x=1730.69, y=4.00, z=-307.37], EntityItem['item.item.bone'/96, l='MpServer', x=1730.31, y=4.00, z=-308.16], EntityItem['item.item.rottenFlesh'/97, l='MpServer', x=1737.09, y=4.00, z=-302.25], EntitySlime['Slime'/46817, l='MpServer', x=1778.39, y=4.14, z=-197.44], EntityItem['item.item.rottenFlesh'/98, l='MpServer', x=1750.34, y=4.00, z=-314.40], EntitySpider['Spider'/100, l='MpServer', x=1732.50, y=4.00, z=-275.50], EntityItem['item.item.rottenFlesh'/101, l='MpServer', x=1748.46, y=4.00, z=-262.42], EntityItem['item.item.arrow'/102, l='MpServer', x=1759.87, y=4.00, z=-259.40], EntityItem['item.item.bone'/103, l='MpServer', x=1759.21, y=4.00, z=-250.59], EntitySlime['Slime'/104, l='MpServer', x=1762.39, y=4.00, z=-227.44], EntityPlayerSP['Player744'/57, l='MpServer', x=1774.04, y=4.00, z=-251.07], EntityItem['item.item.arrow'/105, l='MpServer', x=1769.02, y=4.00, z=-213.46], EntityItem['item.item.bone'/106, l='MpServer', x=1767.90, y=4.00, z=-215.16], EntityCreeper['Creeper'/107, l='MpServer', x=1737.50, y=4.00, z=-183.50], EntitySlime['Slime'/11373, l='MpServer', x=1770.52, y=4.04, z=-326.85], EntityItem['item.item.rottenFlesh'/110, l='MpServer', x=1747.55, y=4.00, z=-189.04]]
+	Retry entities: 0 total; []
+	Server brand: fml,forge
+	Server type: Integrated singleplayer server
+Stacktrace:
+	at net.minecraft.client.multiplayer.WorldClient.addWorldInfoToCrashReport(WorldClient.java:461)
+	at net.minecraft.client.Minecraft.addGraphicsAndWorldToCrashReport(Minecraft.java:2888)
+	at net.minecraft.client.Minecraft.run(Minecraft.java:462)
+	at net.minecraft.client.main.Main.main(Main.java:118)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at net.minecraft.launchwrapper.Launch.launch(Launch.java:135)
+	at net.minecraft.launchwrapper.Launch.main(Launch.java:28)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at net.minecraftforge.gradle.GradleStartCommon.launch(GradleStartCommon.java:97)
+	at GradleStart.main(GradleStart.java:25)
+
+-- System Details --
+Details:
+	Minecraft Version: 1.12.2
+	Operating System: Windows 10 (amd64) version 10.0
+	Java Version: 1.8.0_192, Oracle Corporation
+	Java VM Version: Java HotSpot(TM) 64-Bit Server VM (mixed mode), Oracle Corporation
+	Memory: 564027880 bytes (537 MB) / 888143872 bytes (847 MB) up to 1883242496 bytes (1796 MB)
+	JVM Flags: 0 total; 
+	IntCache: cache: 0, tcache: 0, allocated: 0, tallocated: 0
+	FML: MCP 9.42 Powered by Forge 14.23.5.2768 7 mods loaded, 7 mods active
+	States: 'U' = Unloaded 'L' = Loaded 'C' = Constructed 'H' = Pre-initialized 'I' = Initialized 'J' = Post-initialized 'A' = Available 'D' = Disabled 'E' = Errored
+
+	| State     | ID                | Version      | Source                                    | Signature |
+	|:--------- |:----------------- |:------------ |:----------------------------------------- |:--------- |
+	| UCHIJAAAA | minecraft         | 1.12.2       | minecraft.jar                             | None      |
+	| UCHIJAAAA | mcp               | 9.42         | minecraft.jar                             | None      |
+	| UCHIJAAAA | FML               | 8.0.99.99    | forgeSrc-1.12.2-14.23.5.2768.jar          | None      |
+	| UCHIJAAAA | forge             | 14.23.5.2768 | forgeSrc-1.12.2-14.23.5.2768.jar          | None      |
+	| UCHIJAAAA | railway_to_heaven | 1.0          | bin                                       | None      |
+	| UCHIJAAAA | lunatriuscore     | 1.2.0.42     | LunatriusCore-1.12.2-1.2.0.42.jar         | None      |
+	| UCHIJAAAA | schematica        | 1.8.0.git    | Schematica-1.12.2-1.8.0.git-universal.jar | None      |
+
+	Loaded coremods (and transformers): 
+	GL info: ' Vendor: 'Intel' Version: '4.5.0 - Build 24.20.100.6194' Renderer: 'Intel(R) HD Graphics 630'
+	Launched Version: 1.12.2
+	LWJGL: 2.9.4
+	OpenGL: Intel(R) HD Graphics 630 GL version 4.5.0 - Build 24.20.100.6194, Intel
+	GL Caps: Using GL 1.3 multitexturing.
+Using GL 1.3 texture combiners.
+Using framebuffer objects because OpenGL 3.0 is supported and separate blending is supported.
+Shaders are available because OpenGL 2.1 is supported.
+VBOs are available because OpenGL 1.5 is supported.
+
+	Using VBOs: Yes
+	Is Modded: Definitely; Client brand changed to 'fml,forge'
+	Type: Client (map_client.txt)
+	Resource Packs: 
+	Current Language: English (US)
+	Profiler Position: N/A (disabled)
+	CPU: 8x Intel(R) Core(TM) i7-7700HQ CPU @ 2.80GHz

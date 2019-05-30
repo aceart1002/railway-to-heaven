@@ -1,0 +1,16 @@
+[
+{
+  "modid": "railway_to_heaven",
+  "name": "Railway to heaven",
+  "description": "Example placeholder mod.",
+  "version": "${version}",
+  "mcversion": "${mcversion}",
+  "url": "",
+  "updateUrl": "",
+  "authorList": ["ExampleDude"],
+  "credits": "to Varys on steroids",
+  "logoFile": "",
+  "screenshots": [],
+  "dependencies": []
+}
+]
