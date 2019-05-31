@@ -33,6 +33,7 @@ minecraft {
     // makeObfSourceJar = false // an Srg named sources jar is made by default. uncomment this to disable.
 }
 
+
 repositories {
     ivy {
         name = 'lunatrius\' ivy repo'
@@ -44,7 +45,6 @@ dependencies {
 	compile files('libs/Schemes-1.12.2-1.8.0.git-universal.jar');
 	deobfCompile group: 'com.github.lunatrius', name: 'LunatriusCore', version: "1.12.2-1.2.0.42", classifier: 'universal'
     
-
 }
 
 processResources {

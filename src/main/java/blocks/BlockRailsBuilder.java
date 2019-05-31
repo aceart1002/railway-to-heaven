@@ -1,8 +1,8 @@
 package blocks;
 
-import aceart.blocks.BlockSchemeController;
 import aceart.schemes.Schemes;
 import net.minecraft.block.material.Material;
+import railwaytoheaven.RailwayToHeaven;
 
 public class BlockRailsBuilder extends BlockSchemeController {
 
@@ -18,10 +18,10 @@ public class BlockRailsBuilder extends BlockSchemeController {
 	@Override
 	public void openLoadingGui() {
 		try {
-			//ClientProxy.MINECRAFT.displayGuiScreen(new 
-			//		GuiGenerateRails(ClientProxy.MINECRAFT.currentScreen));
-//			RailwayToHeaven.proxy.openGuiGenerate();
-			Schemes.proxy.openGuiGenerate();
+
+			RailwayToHeaven.proxy.openGuiGenerate();
+//			Schemes.proxy.openGuiGenerate();
+			
 		} catch (Exception e) {
 
 		}

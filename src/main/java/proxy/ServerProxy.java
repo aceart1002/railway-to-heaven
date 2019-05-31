@@ -10,6 +10,12 @@ public class ServerProxy extends CommonProxy {
 		super.init(event);
 	}
 
+	@Override
+	public void openGuiGenerate() {
+		// TODO Auto-generated method stub
+		
+	}
+
 
 
 }
