@@ -20,7 +20,7 @@ compileJava {
     sourceCompatibility = targetCompatibility = '1.8'
 }
 
-minecraft {
+minecraft { //14.23.0.2512
     version = "1.12.2-14.23.5.2768"
     runDir = "run"
     
