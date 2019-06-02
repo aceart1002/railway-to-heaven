@@ -10,7 +10,7 @@ public interface Registrable<T  extends IForgeRegistryEntry<T>> {
 	
 	void setCustomRegistryName(String newName);
 	
-	public Block setUnlocalizedName(String name);
+	public Object setUnlocalizedName(String name);
 	
 	public T setRegistryName(String name);
 	

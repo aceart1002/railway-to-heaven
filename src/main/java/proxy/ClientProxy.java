@@ -5,10 +5,11 @@ import aceart.api.InitObject;
 import aceart.api.Saving;
 import aceart.network.Updater;
 import aceart.schemes.Schemes;
-import blocks.BlockSchemeController;
 import gui.GuiGenerateRails;
+import items.SchemeBuilding;
 import net.minecraft.client.Minecraft;
 import net.minecraft.util.math.BlockPos;
+import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.fml.common.event.FMLInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPostInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
@@ -18,7 +19,7 @@ import registry.ModBlocks;
 public class ClientProxy extends proxy.CommonProxy {
 
 	public static final Minecraft MINECRAFT = Minecraft.getMinecraft();
-
+	
 	@Override
 	public boolean isSameController(BlockPos currentPos) {
 		
@@ -52,13 +53,16 @@ public class ClientProxy extends proxy.CommonProxy {
 	public void preInit(FMLPreInitializationEvent event) {
 		super.preInit(event);
 
+		
+		
 		InitObject initSchemes = new InitObject(new BoxBuilder(), (Saving) ModBlocks.SAVER,
 				(Controlling) ModBlocks.CONTROLLER, new Updater());
 	}
 	@Override
 	public void init(final FMLInitializationEvent event) {
 		super.init(event);
-
+		
+		MinecraftForge.EVENT_BUS.register(new SchemeBuilding());
 	}
 	
 	@Override
@@ -75,5 +79,7 @@ public class ClientProxy extends proxy.CommonProxy {
 
 		//}
 	}
+	
+	
 
 }

@@ -1,0 +1,12 @@
+{
+    "parent": "block/cube",
+    "textures": {
+        "particle": "railway_to_heaven:blocks/saver_rect_blank",
+        "up":       "railway_to_heaven:blocks/saver_rect_blank",
+        "down":     "railway_to_heaven:blocks/saver_blank",
+        "north":    "railway_to_heaven:blocks/saver_rect",
+        "south":    "railway_to_heaven:blocks/saver_rect",
+        "east":     "railway_to_heaven:blocks/saver_blank",
+        "west":     "railway_to_heaven:blocks/saver_blank"
+    }
+}

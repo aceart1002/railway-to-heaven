@@ -1,8 +1,8 @@
 {
 	"forge_marker": 1,
     "variants": {
-    	"inventory": {"model": "railway_to_heaven:controller_model"},
-         "normal": {"model": "railway_to_heaven:controller_model"}
+    	"inventory": {"model": "railway_to_heaven:saver_model"},
+         "normal": {"model": "railway_to_heaven:saver_model"}
     },
     "facing": {
             "down":  { "x":  90 },

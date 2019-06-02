@@ -17,7 +17,7 @@ public class SchemesTab extends CreativeTabs {
 
 	@Override
 	public ItemStack getTabIconItem() {
-		return new ItemStack(Item.getItemFromBlock((Block) ModBlocks.CONTROLLER));
+		return new ItemStack(Item.getItemFromBlock((Block) ModBlocks.RAILS));
 	}
 	
 	@Override

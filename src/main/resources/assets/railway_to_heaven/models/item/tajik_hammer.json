@@ -1,0 +1,7 @@
+{
+    "parent": "minecraft:item/generated",
+    
+    "textures": {
+        "layer0": "railway_to_heaven:items/tajik_hammer_icon"
+    }
+}

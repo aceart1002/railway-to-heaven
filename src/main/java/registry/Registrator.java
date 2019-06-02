@@ -6,6 +6,7 @@ import net.minecraft.block.Block;
 import net.minecraft.client.renderer.block.model.ModelResourceLocation;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemBlock;
+import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.client.event.ModelRegistryEvent;
 import net.minecraftforge.client.model.ModelLoader;
 import net.minecraftforge.event.RegistryEvent;
@@ -30,41 +31,69 @@ public class Registrator {
 			((Block)unregistered).setRegistryName(customName);
 
 		}
-		
+
 		IForgeRegistry<Block> registry = event.getRegistry();
 		for(Registrable unregistered : ModBlocks.BLOCKS) {
 			registry.register((Block)unregistered);
 		}
-		
+
 		for(ContainsTile<?> blockWithTile : ModBlocks.TILES) {
 			GameRegistry.registerTileEntity((blockWithTile).getTileEntityClass(), ((Registrable)blockWithTile).getCustomRegistryName());
 		}
 
 	}
+	
 
 	@SubscribeEvent
-	public static void registerItems(RegistryEvent.Register<Item> event) {
-		IForgeRegistry<Item> registry = event.getRegistry();
+	public static void registerItemBlocks(RegistryEvent.Register<Item> event) {
+		
+		for(Registrable unregistered : ModItems.ITEMS) {
+			String customName = unregistered.getCustomRegistryName();
 
+			((Item)unregistered).setUnlocalizedName(customName);
+			((Item)unregistered).setRegistryName(customName);
+
+		}
+		
+		IForgeRegistry<Item> registry = event.getRegistry();
+		for(Registrable unregistered : ModItems.ITEMS) {
+			registry.register((Item)unregistered);
+		}
+		
 		for(Registrable block : ModBlocks.BLOCKS) {
 			Block unregistered = (Block) block;
+			
+			ResourceLocation location = unregistered.getRegistryName();
+			
 			Item itemBlock = new ItemBlock(unregistered).setRegistryName
-					(unregistered.getRegistryName());
+					(location);
 			registry.register(itemBlock);
 		}
 
 	}
 
 	@SubscribeEvent
-	public static void registerModels(ModelRegistryEvent event) {
+	public static void registerItemBlockModels(ModelRegistryEvent event) {
 
 		for(Registrable block : ModBlocks.BLOCKS) {
 			Block unregistered = (Block) block;
 			Item item = Item.getItemFromBlock(unregistered);
 			String id = unregistered.getRegistryName().toString();
+			ModelResourceLocation itemModelLocation = new ModelResourceLocation
+					(id, "inventory");
+
 			ModelLoader.setCustomModelResourceLocation(
-					item, 0, new ModelResourceLocation
-					(RailwayToHeaven.MODID + ":" + id, "inventory"));
+					item, 0, itemModelLocation);
+		}
+		
+		for(Registrable item : ModItems.ITEMS) {
+			Item unregistered = (Item) item;
+			String id = unregistered.getRegistryName().toString();
+			ModelResourceLocation itemModelLocation = new ModelResourceLocation
+					(id, "inventory");
+
+			ModelLoader.setCustomModelResourceLocation(
+					unregistered, 0, itemModelLocation);
 		}
 	}
 
