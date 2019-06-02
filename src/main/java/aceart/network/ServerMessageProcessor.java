@@ -1,5 +1,8 @@
 package aceart.network;
 
+import com.github.lunatrius.schematica.proxy.ClientProxy;
+import com.github.lunatrius.schematica.proxy.CommonProxy;
+
 import aceart.schemes.Schemes;
 import net.minecraft.entity.player.EntityPlayerMP;
 import net.minecraft.world.WorldServer;
@@ -43,10 +46,10 @@ public class ServerMessageProcessor implements IMessageHandler<UpdateMessage, IM
 			//Schemes.proxy.controller.setSchematic(message.schemeTag);
 		}
 		else if(op == 4) {
-			Schemes.proxy.controller.switchFlip();
+			ClientProxy.controller.switchFlip();
 		}
 		else if (op == 5) {
-			Schemes.proxy.controller.switchRotations();
+			ClientProxy.controller.switchRotations();
 		}
 	}
 	

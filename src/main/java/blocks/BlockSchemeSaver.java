@@ -13,7 +13,9 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.util.EnumFacing;
 import net.minecraft.util.EnumHand;
 import net.minecraft.util.math.BlockPos;
+import net.minecraft.world.Explosion;
 import net.minecraft.world.World;
+import railwaytoheaven.RailwayToHeaven;
 
 public class BlockSchemeSaver extends AbstractTileBlock<TileSavePoints> implements Saving {
 
@@ -24,11 +26,27 @@ public class BlockSchemeSaver extends AbstractTileBlock<TileSavePoints> implemen
 		// TODO Auto-generated constructor stub
 	}
 
+	@Override
+	public boolean onBlockActivated(World world, BlockPos position, IBlockState blockState, EntityPlayer player, EnumHand hand, EnumFacing side, float hitX, float hitY, float hitZ) {
+
+		TileSavePoints currentTile = getTileEntity(world, position);
+
+		currentData = new BlockData(position, currentTile, world);
+		Schemes.proxy.saver = this;
+
+		if (world.isRemote) {
+
+			Schemes.proxy.openGuiSave();
+		}
+
+		return true;
+	}
+
 	private boolean isSameSaver(BlockPos currentPos) {
 
 		BlockPos previousPos; 
-		if(ClientProxy.saver != null) {
-			previousPos = ClientProxy.saver.getCurrentPosition();
+		if(Schemes.proxy.saver != null) {
+			previousPos = Schemes.proxy.saver.getCurrentPosition();
 			if(previousPos == null)
 				return false;
 		} else 
@@ -46,23 +64,6 @@ public class BlockSchemeSaver extends AbstractTileBlock<TileSavePoints> implemen
 	}
 
 	@Override
-	public boolean onBlockActivated(World world, BlockPos position, IBlockState blockState, EntityPlayer player, EnumHand hand, EnumFacing side, float hitX, float hitY, float hitZ) {
-
-		ClientProxy.saver = this;
-
-		TileSavePoints currentTile = getTileEntity(world, position);
-		currentData = new BlockData(position, currentTile, world);
-
-
-		if (world.isRemote) {
-
-			Schemes.proxy.openGuiSave();
-		}
-
-		return true;
-	}
-
-	@Override
 	public void onBlockPlacedBy(World worldIn, BlockPos pos, IBlockState state, EntityLivingBase placer,
 			ItemStack stack) {
 		//		TileSavePoints tile = getTileEntity(worldIn, pos);
@@ -76,15 +77,46 @@ public class BlockSchemeSaver extends AbstractTileBlock<TileSavePoints> implemen
 		super.onBlockPlacedBy(worldIn, pos, state, placer, stack);
 
 	}
+	
+	@Override
+	public void onBlockDestroyedByExplosion(World worldIn, BlockPos pos, Explosion explosionIn) {
+		if(worldIn.isRemote) {
+			try {
+				if(isSameSaver(pos))
+					ClientProxy.isRenderingGuide = false;
+			} catch (Exception e) {
+
+			}
+		}
+
+		super.onBlockDestroyedByExplosion(worldIn, pos, explosionIn);
+	}
+	
+	@Override
+	public void onBlockDestroyedByPlayer(World worldIn, BlockPos pos, IBlockState state) {
+		if(worldIn.isRemote) {
+			try {
+				if(isSameSaver(pos))
+					ClientProxy.isRenderingGuide = false;
+			} catch (Exception e) {
+
+			}
+		}
+
+		super.onBlockDestroyedByPlayer(worldIn, pos, state);
+	}
 
 	@Override
 	public void breakBlock(World worldIn, BlockPos pos, IBlockState state) {
-		try {
-			if(isSameSaver(pos))
-				ClientProxy.isRenderingGuide = false;
-		} catch (Exception e) {
 
-		}
+//		if(worldIn.isRemote) {
+//			try {
+//				if(isSameSaver(pos))
+//					ClientProxy.isRenderingGuide = false;
+//			} catch (Exception e) {
+//
+//			}
+//		}
 		super.breakBlock(worldIn, pos, state);
 	}
 

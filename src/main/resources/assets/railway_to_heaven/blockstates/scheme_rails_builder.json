@@ -1,0 +1,7 @@
+{
+	"forge_marker": 1,
+    "variants": {
+    	"inventory": {"model": "railway_to_heaven:scheme_rails_builder_model"},
+         "normal": {"model": "railway_to_heaven:scheme_rails_builder_model"}
+    }
+}

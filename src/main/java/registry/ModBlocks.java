@@ -18,6 +18,6 @@ public class ModBlocks {
 	public static final ContainsTile SCHEME_CONTROL_TILE = (ContainsTile) CONTROLLER;
 	public static final ContainsTile SCHEME_SAVER_TILE = (ContainsTile) SAVER;
 	
-	public static final Registrable[] BLOCKS = {SAVER, CONTROLLER, RAILS};
+	public static final Registrable[] BLOCKS = {RAILS};
 	public static final ContainsTile[] TILES = {SCHEME_CONTROL_TILE, SCHEME_SAVER_TILE};
 }

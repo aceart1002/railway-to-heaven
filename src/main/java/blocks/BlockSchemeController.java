@@ -12,7 +12,9 @@ import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.util.EnumFacing;
 import net.minecraft.util.EnumHand;
 import net.minecraft.util.math.BlockPos;
+import net.minecraft.world.Explosion;
 import net.minecraft.world.World;
+import railwaytoheaven.RailwayToHeaven;
 
 public class BlockSchemeController extends AbstractTileBlock<TileSchemeContainer> 
 implements Controlling {
@@ -26,16 +28,18 @@ implements Controlling {
 	@Override
 	public boolean onBlockActivated(World world, BlockPos position, IBlockState blockState, EntityPlayer player, EnumHand hand, EnumFacing side, float hitX, float hitY, float hitZ) {
 
-		if(!isSameController(position)) {
+
+		if(!RailwayToHeaven.proxy.isSameController(position)) {
 			Schemes.proxy.unloadSchematic(false);
 		}
-
 		currentData = new BlockData(getTileEntity(world, position), position, world, 
 				displaceOrNot());
 
 		ClientProxy.controller = this;
 
 		if (world.isRemote) {
+
+			//if(world.isRemote) {
 
 			ClientProxy.shouldDisplace = displaceOrNot();
 
@@ -55,33 +59,6 @@ implements Controlling {
 		return true;
 	}
 
-	private boolean isSameController(BlockPos currentPos) {
-
-		BlockPos previousPos; 
-		if(ClientProxy.controller != null) {
-			previousPos = ClientProxy.controller.getPosition();
-			if(previousPos == null)
-				return false;
-		} else 
-			return false;
-
-		int x1 = currentPos.getX();
-		int y1 = currentPos.getY();
-		int z1 = currentPos.getZ();
-
-		int x2 = previousPos.getX();
-		int y2 = previousPos.getY();
-		int z2 = previousPos.getZ();
-
-		boolean samePosition = (x1 == x2 && y1 == y2 && z1 == z2) ? true : false;
-
-		if(samePosition && ClientProxy.schematic != null) {
-			return true;
-		} else {
-			return false;
-		}
-	}
-
 	protected boolean displaceOrNot() {
 		return false;
 	}
@@ -90,30 +67,55 @@ implements Controlling {
 		try {
 			Schemes.proxy.openGuiLoad();
 		} catch (Exception e) {
-			
+
 		}
-		
+
 	}
 
 	public void openControllingGui() {
 		try {
 			Schemes.proxy.openGuiControl();
 		} catch (Exception e) {
-			
+
 		}
 	}
 
 	@Override
 	public void breakBlock(World worldIn, BlockPos pos, IBlockState state) {
 
+		//			try {
+		//				if(RailwayToHeaven.proxy.isSameController(pos)) {
+		//					Schemes.proxy.unloadSchematic(false);
+		//				}
+		//			} catch (Exception e) {
+		//
+		//			}
+					super.breakBlock(worldIn, pos, state);
+
+	}
+
+	@Override
+	public void onBlockDestroyedByPlayer(World worldIn, BlockPos pos, IBlockState state) {
 		try {
-			if(isSameController(pos)) {
+			if(RailwayToHeaven.proxy.isSameController(pos)) {
 				Schemes.proxy.unloadSchematic(false);
 			}
 		} catch (Exception e) {
 
 		}
-		super.breakBlock(worldIn, pos, state);
+		super.onBlockDestroyedByPlayer(worldIn, pos, state);
+	}
+
+	@Override
+	public void onBlockDestroyedByExplosion(World worldIn, BlockPos pos, Explosion explosionIn) {
+		try {	
+			if(RailwayToHeaven.proxy.isSameController(pos)) {
+				Schemes.proxy.unloadSchematic(false);
+			}
+		} catch (Exception e) {
+
+		}
+		super.onBlockDestroyedByExplosion(worldIn, pos, explosionIn);
 	}
 
 	public void switchMode() {

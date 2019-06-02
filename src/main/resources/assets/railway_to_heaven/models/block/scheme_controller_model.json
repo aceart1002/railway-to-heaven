@@ -1,0 +1,12 @@
+{
+    "parent": "block/cube",
+    "textures": {
+        "down": "railway_to_heaven:blocks/mbe01_block_simple_face0",
+        "up": "railway_to_heaven:blocks/mbe01_block_simple_face0",
+        "north": "railway_to_heaven:blocks/mbe01_block_simple_face0",
+        "east": "railway_to_heaven:blocks/mbe01_block_simple_face0",
+        "south": "railway_to_heaven:blocks/mbe01_block_simple_face0",
+        "west": "railway_to_heaven:blocks/mbe01_block_simple_face0",
+        "particle": "blocks/lapis_block"
+    }
+}

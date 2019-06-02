@@ -1,20 +1,12 @@
 package railwaytoheaven;
 
-import com.github.lunatrius.schematica.client.printer.SchematicPrinter;
-
-import aceart.api.Controlling;
-import aceart.api.Saving;
-import aceart.network.Updater;
-import aceart.schemes.Schemes;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.Mod.EventHandler;
 import net.minecraftforge.fml.common.SidedProxy;
 import net.minecraftforge.fml.common.event.FMLInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPostInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
-import printer.BoxBuilder;
 import proxy.CommonProxy;
-import registry.ModBlocks;
 import tab.SchemesTab;
 
 @Mod(modid = RailwayToHeaven.MODID, name = RailwayToHeaven.NAME, version = RailwayToHeaven.VERSION)
@@ -48,12 +40,6 @@ public class RailwayToHeaven
     public void postInit(FMLPostInitializationEvent event) {
     	proxy.postInit(event);
     	
-    	com.github.lunatrius.schematica.proxy.CommonProxy proxy = Schemes.proxy;
-    	
-    	proxy.controller = (Controlling) ModBlocks.CONTROLLER;
-    	proxy.saver = (Saving) ModBlocks.SAVER;
-    	proxy.updater = new Updater();
-    	SchematicPrinter.printArea = new BoxBuilder();
     }
     
   
