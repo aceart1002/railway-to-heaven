@@ -3,6 +3,8 @@ package proxy;
 import aceart.api.Controlling;
 import aceart.api.InitObject;
 import aceart.api.Saving;
+import aceart.network.ServerTileUpdater;
+import aceart.network.UpdateMessage;
 import aceart.network.Updater;
 import aceart.schemes.Schemes;
 import gui.GuiGenerateRails;
@@ -13,12 +15,18 @@ import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.fml.common.event.FMLInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPostInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
+import net.minecraftforge.fml.common.network.NetworkRegistry;
+import net.minecraftforge.fml.common.network.simpleimpl.SimpleNetworkWrapper;
+import net.minecraftforge.fml.relauncher.Side;
 import printer.BoxBuilder;
+import railwaytoheaven.RailwayToHeaven;
 import registry.ModBlocks;
 
 public class ClientProxy extends proxy.CommonProxy {
 
 	public static final Minecraft MINECRAFT = Minecraft.getMinecraft();
+	
+	
 	
 	@Override
 	public boolean isSameController(BlockPos currentPos) {
@@ -53,8 +61,6 @@ public class ClientProxy extends proxy.CommonProxy {
 	public void preInit(FMLPreInitializationEvent event) {
 		super.preInit(event);
 
-		
-		
 		InitObject initSchemes = new InitObject(new BoxBuilder(), (Saving) ModBlocks.SAVER,
 				(Controlling) ModBlocks.CONTROLLER, new Updater());
 	}

@@ -1,6 +1,6 @@
 package proxy;
 
-import aceart.network.ServerMessageProcessor;
+import aceart.network.ServerTileUpdater;
 import aceart.network.UpdateMessage;
 import aceart.schemes.Schemes;
 import net.minecraft.util.math.BlockPos;
@@ -14,24 +14,26 @@ import railwaytoheaven.RailwayToHeaven;
 
 public abstract class CommonProxy {
 
-	public static SimpleNetworkWrapper wrapper;
+	public static final SimpleNetworkWrapper wrapper = 
+			NetworkRegistry.INSTANCE.newSimpleChannel(RailwayToHeaven.MODID + RailwayToHeaven.VERSION);
+	;
 	private static final byte MESSAGE_ID = 64;
 
 	public abstract boolean isSameController(BlockPos currentPos);
 	
 	public void preInit(final FMLPreInitializationEvent event) {
 
-		wrapper = NetworkRegistry.INSTANCE.newSimpleChannel(RailwayToHeaven.MODID + RailwayToHeaven.VERSION);
-		wrapper.registerMessage(ServerMessageProcessor.class, UpdateMessage.class, 
+//		wrapper = NetworkRegistry.INSTANCE.newSimpleChannel(RailwayToHeaven.MODID + RailwayToHeaven.VERSION);
+		wrapper.registerMessage(ServerTileUpdater.class, UpdateMessage.class, 
 				MESSAGE_ID, Side.SERVER);
 
 	}
 	public void init(final FMLInitializationEvent event) {
-
+		
 	}
 
 	public void postInit(final FMLPostInitializationEvent event) {
-		com.github.lunatrius.schematica.proxy.CommonProxy proxy = Schemes.proxy;
+//		com.github.lunatrius.schematica.proxy.CommonProxy proxy = Schemes.proxy;
 //
 //		proxy.controller = (Controlling) ModBlocks.CONTROLLER;
 //		proxy.saver = (Saving) ModBlocks.SAVER;

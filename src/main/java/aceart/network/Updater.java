@@ -3,6 +3,7 @@ package aceart.network;
 
 import aceart.api.ServerUpdater;
 import net.minecraft.util.math.BlockPos;
+import proxy.ClientProxy;
 import proxy.CommonProxy;
 import railwaytoheaven.RailwayToHeaven;
 
@@ -14,7 +15,7 @@ public class Updater implements ServerUpdater {
 		
 		UpdateMessage message = new UpdateMessage(savePoint, name,
 				rotationRender, displacement, operation);
-		CommonProxy.wrapper.sendToServer(message);
+		ClientProxy.wrapper.sendToServer(message);
 		
 	}
 

@@ -1,6 +1,5 @@
 package registry;
 
-import net.minecraft.block.Block;
 import net.minecraftforge.registries.IForgeRegistryEntry;
 
 public interface Registrable<T  extends IForgeRegistryEntry<T>> {

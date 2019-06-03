@@ -10,7 +10,7 @@ import net.minecraftforge.fml.common.network.simpleimpl.IMessage;
 import net.minecraftforge.fml.common.network.simpleimpl.IMessageHandler;
 import net.minecraftforge.fml.common.network.simpleimpl.MessageContext;
 
-public class ServerMessageProcessor implements IMessageHandler<UpdateMessage, IMessage>{
+public class ServerTileUpdater implements IMessageHandler<UpdateMessage, IMessage>{
 
 	@Override
 	public IMessage onMessage(UpdateMessage message, MessageContext ctx) {

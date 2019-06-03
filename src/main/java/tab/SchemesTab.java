@@ -1,27 +1,29 @@
 package tab;
 
-import com.github.lunatrius.schematica.reference.Reference;
-
 import net.minecraft.block.Block;
+import net.minecraft.block.material.Material;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
-import registry.ModBlocks;
+import railwaytoheaven.RailwayToHeaven;
 
 public class SchemesTab extends CreativeTabs {
 	
 	public SchemesTab() {
-		super(Reference.MODID);
+		super(RailwayToHeaven.MODID);
 		setBackgroundImageName("item_search.png");
 	}
 
 	@Override
 	public ItemStack getTabIconItem() {
-		return new ItemStack(Item.getItemFromBlock((Block) ModBlocks.RAILS));
+		//return new ItemStack(Item.getItemFromBlock((Block) ModBlocks.RAILS));
+		Block b = new Block(Material.CACTUS);
+		return new ItemStack(Item.getItemFromBlock((Block) b));
 	}
 	
 	@Override
 	public boolean hasSearchBar() {
-		return true;
+		return false;
 	}
+
 }

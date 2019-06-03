@@ -1,12 +1,11 @@
 package blocks;
 
-import aceart.schemes.Schemes;
 import net.minecraft.block.material.Material;
 import railwaytoheaven.RailwayToHeaven;
 
-public class BlockRailsBuilder extends BlockSchemeController {
+public class BlockSchemeRails extends BlockSchemeController {
 
-	public BlockRailsBuilder(Material material, String regName) {
+	public BlockSchemeRails(Material material, String regName) {
 		super(material, regName);
 	}
 

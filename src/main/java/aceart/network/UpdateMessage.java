@@ -1,8 +1,5 @@
 package aceart.network;
 
-import com.github.lunatrius.schematica.world.schematic.SchematicAlpha;
-import com.github.lunatrius.schematica.world.schematic.SchematicFormat;
-
 import io.netty.buffer.ByteBuf;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.Vec3d;
@@ -11,7 +8,7 @@ import net.minecraftforge.fml.common.network.simpleimpl.IMessage;
 
 public class UpdateMessage implements IMessage {
 
-	private static final SchematicFormat FORMAT = new SchematicAlpha();
+	//private static final SchematicFormat FORMAT = new SchematicAlpha();
 
 	String schemeName;
 	public int rotationRender;
