@@ -1,4 +1,4 @@
-package railwaytoheaven;
+package rth;
 
 import java.io.File;
 import java.util.Map;
@@ -11,7 +11,7 @@ import aceart.schemes.Schemes;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.client.Minecraft;
 import net.minecraft.util.math.BlockPos;
-import railway.building.RailBuilder;
+import rth.building.RailBuilder;
 
 public class Operator {
 
@@ -41,7 +41,7 @@ public class Operator {
 
 			fileName += ".schematic";
 
-			Minecraft game = proxy.ClientProxy.MINECRAFT;
+			Minecraft game = rth.proxy.ClientProxy.MINECRAFT;
 			
 	
 			Schemes.proxy.saveSchematic(game.player, dir, fileName, game.world, format, A, B, 

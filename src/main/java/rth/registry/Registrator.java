@@ -1,7 +1,5 @@
-package registry;
+package rth.registry;
 
-
-import aceart.blocks.tiles.ContainsTile;
 import net.minecraft.block.Block;
 import net.minecraft.client.renderer.block.model.ModelResourceLocation;
 import net.minecraft.item.Item;
@@ -14,15 +12,15 @@ import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 import net.minecraftforge.fml.common.registry.GameRegistry;
 import net.minecraftforge.registries.IForgeRegistry;
-import railwaytoheaven.RailwayToHeaven;
-import registry.ModBlocks;
-import registry.Registrable;
+import rth.RailwayToHeaven;
+import rth.tiles.ContainsTile;
 
 @Mod.EventBusSubscriber(modid = RailwayToHeaven.MODID)
 public class Registrator {
 
 	@SubscribeEvent
 	public static void registerBlocks(RegistryEvent.Register<Block> event) {
+
 
 		for(Registrable unregistered : ModBlocks.BLOCKS) {
 			String customName = unregistered.getCustomRegistryName();
@@ -42,7 +40,6 @@ public class Registrator {
 		}
 
 	}
-	
 
 	@SubscribeEvent
 	public static void registerItemBlocks(RegistryEvent.Register<Item> event) {
@@ -59,12 +56,11 @@ public class Registrator {
 		for(Registrable unregistered : ModItems.ITEMS) {
 			registry.register((Item)unregistered);
 		}
-		
+
 		for(Registrable block : ModBlocks.BLOCKS) {
 			Block unregistered = (Block) block;
-			
+
 			ResourceLocation location = unregistered.getRegistryName();
-			
 			Item itemBlock = new ItemBlock(unregistered).setRegistryName
 					(location);
 			registry.register(itemBlock);
@@ -85,7 +81,7 @@ public class Registrator {
 			ModelLoader.setCustomModelResourceLocation(
 					item, 0, itemModelLocation);
 		}
-		
+
 		for(Registrable item : ModItems.ITEMS) {
 			Item unregistered = (Item) item;
 			String id = unregistered.getRegistryName().toString();

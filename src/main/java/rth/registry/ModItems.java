@@ -1,6 +1,6 @@
-package registry;
+package rth.registry;
 
-import items.BuildingHammer;
+import rth.items.BuildingHammer;
 
 public class ModItems {
 	public static final Registrable HAMMER = new BuildingHammer("tajik_hammer");

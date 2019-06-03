@@ -1,9 +1,9 @@
-package railway.building.algorithm;
+package rth.building.algorithm;
 
 import java.util.ArrayList;
 
-import railway.building.Point;
-import railway.building.RailBuilder;
+import rth.building.Point;
+import rth.building.RailBuilder;
 
 public abstract class RailWay {
 public ArrayList<Point> points = new ArrayList<Point>();

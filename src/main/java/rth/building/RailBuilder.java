@@ -1,10 +1,10 @@
-package railway.building;
+package rth.building;
 
 import java.util.Map;
 
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.util.math.BlockPos;
-import railway.building.algorithm.RailWay;
+import rth.building.algorithm.RailWay;
 
 public class RailBuilder {
 	

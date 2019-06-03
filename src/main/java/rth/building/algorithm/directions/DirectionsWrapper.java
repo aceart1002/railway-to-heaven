@@ -1,10 +1,10 @@
-package railway.building.algorithm.directions;
+package rth.building.algorithm.directions;
 
 import java.util.Random;
 
-import railway.building.Point;
-import railway.building.PointsManager;
-import railway.building.algorithm.RailRoad;
+import rth.building.Point;
+import rth.building.PointsManager;
+import rth.building.algorithm.RailRoad;
 
 public class DirectionsWrapper {
 

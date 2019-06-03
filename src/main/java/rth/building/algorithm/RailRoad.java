@@ -1,10 +1,10 @@
-package railway.building.algorithm;
+package rth.building.algorithm;
 
-import railway.building.Point;
-import railway.building.PointsManager;
-import railway.building.RailBuilder;
-import railway.building.algorithm.directions.Direction;
-import railway.building.algorithm.directions.DirectionsWrapper;
+import rth.building.Point;
+import rth.building.PointsManager;
+import rth.building.RailBuilder;
+import rth.building.algorithm.directions.Direction;
+import rth.building.algorithm.directions.DirectionsWrapper;
 
 public class RailRoad extends RailWay {
 

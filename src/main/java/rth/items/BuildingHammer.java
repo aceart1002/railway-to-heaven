@@ -1,4 +1,4 @@
-package items;
+package rth.items;
 
 import net.minecraft.item.Item;
 import net.minecraft.server.management.PlayerList;
@@ -6,8 +6,8 @@ import net.minecraft.util.text.TextComponentString;
 import net.minecraftforge.client.event.MouseEvent;
 import net.minecraftforge.fml.common.FMLCommonHandler;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
-import railwaytoheaven.RailwayToHeaven;
-import registry.Registrable;
+import rth.RailwayToHeaven;
+import rth.registry.Registrable;
 
 public class BuildingHammer extends Item implements Registrable {
 	

@@ -1,4 +1,4 @@
-package railway.building;
+package rth.building;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -8,8 +8,8 @@ import java.util.Random;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.init.Blocks;
 import net.minecraft.util.math.BlockPos;
-import railway.building.algorithm.*;
-import railway.building.algorithm.directions.Direction;
+import rth.building.algorithm.*;
+import rth.building.algorithm.directions.Direction;
 
 public class BlocksMaker {
 

@@ -1,8 +1,7 @@
-package blocks;
+package rth.blocks;
 
 import javax.annotation.Nullable;
 
-import aceart.blocks.tiles.ContainsTile;
 import aceart.schemes.Schemes;
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
@@ -16,8 +15,9 @@ import net.minecraft.util.EnumFacing;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
-import railwaytoheaven.RailwayToHeaven;
-import registry.Registrable;
+import rth.RailwayToHeaven;
+import rth.registry.Registrable;
+import rth.tiles.ContainsTile;
 
 public abstract class AbstractTileBlock<T extends TileEntity> extends Block 
 implements Registrable, ContainsTile {

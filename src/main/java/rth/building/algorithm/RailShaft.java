@@ -1,7 +1,7 @@
-package railway.building.algorithm;
+package rth.building.algorithm;
 
-import railway.building.Point;
-import railway.building.RailBuilder;
+import rth.building.Point;
+import rth.building.RailBuilder;
 
 public class RailShaft extends RailWay {
 

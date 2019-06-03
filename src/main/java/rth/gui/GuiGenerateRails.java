@@ -1,4 +1,4 @@
-package gui;
+package rth.gui;
 
 
 import java.io.IOException;
@@ -7,11 +7,12 @@ import java.util.List;
 import com.github.lunatrius.schematica.proxy.ClientProxy;
 import com.google.common.collect.Lists;
 
+import aceart.schemes.Schemes;
 import net.minecraft.client.gui.GuiButton;
 import net.minecraft.client.gui.GuiScreen;
 import net.minecraft.client.gui.GuiTextField;
 import net.minecraft.util.math.BlockPos;
-import railwaytoheaven.Operator;
+import rth.Operator;
 
 public class GuiGenerateRails extends GuiScreen {
 	
@@ -43,7 +44,7 @@ public class GuiGenerateRails extends GuiScreen {
 
 	        int id = 0;
 
-	        BlockPos startPos = ClientProxy.controller.getPosition();
+	        BlockPos startPos = Schemes.proxy.controller.getPosition();
 	        
 	        X1Field = new GuiTextField(id++, fontRenderer, 10, 10, 70, 20);
 	        X1Field.setText("" + startPos.getX());

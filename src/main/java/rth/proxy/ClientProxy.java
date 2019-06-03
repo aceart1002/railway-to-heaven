@@ -1,14 +1,9 @@
-package proxy;
+package rth.proxy;
 
 import aceart.api.Controlling;
 import aceart.api.InitObject;
 import aceart.api.Saving;
-import aceart.network.ServerTileUpdater;
-import aceart.network.UpdateMessage;
-import aceart.network.Updater;
 import aceart.schemes.Schemes;
-import gui.GuiGenerateRails;
-import items.SchemeBuilding;
 import net.minecraft.client.Minecraft;
 import net.minecraft.util.math.BlockPos;
 import net.minecraftforge.common.MinecraftForge;
@@ -18,11 +13,17 @@ import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
 import net.minecraftforge.fml.common.network.NetworkRegistry;
 import net.minecraftforge.fml.common.network.simpleimpl.SimpleNetworkWrapper;
 import net.minecraftforge.fml.relauncher.Side;
-import printer.BoxBuilder;
-import railwaytoheaven.RailwayToHeaven;
-import registry.ModBlocks;
+import rth.RailwayToHeaven;
+import rth.gui.GuiGenerateRails;
+import rth.items.SchemeBuilding;
+import rth.network.ServerTileUpdater;
+import rth.network.UpdateMessage;
+import rth.network.Updater;
+import rth.printer.BoxBuilder;
+import rth.registry.ModBlocks;
+import rth.registry.Registrator;
 
-public class ClientProxy extends proxy.CommonProxy {
+public class ClientProxy extends rth.proxy.CommonProxy {
 
 	public static final Minecraft MINECRAFT = Minecraft.getMinecraft();
 	
@@ -63,6 +64,9 @@ public class ClientProxy extends proxy.CommonProxy {
 
 		InitObject initSchemes = new InitObject(new BoxBuilder(), (Saving) ModBlocks.SAVER,
 				(Controlling) ModBlocks.CONTROLLER, new Updater());
+		
+		//Registrator.registerItemBlockModels();
+		
 	}
 	@Override
 	public void init(final FMLInitializationEvent event) {

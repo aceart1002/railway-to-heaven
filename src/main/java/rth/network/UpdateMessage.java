@@ -1,4 +1,4 @@
-package aceart.network;
+package rth.network;
 
 import io.netty.buffer.ByteBuf;
 import net.minecraft.util.math.BlockPos;

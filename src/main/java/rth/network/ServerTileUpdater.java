@@ -1,7 +1,4 @@
-package aceart.network;
-
-import com.github.lunatrius.schematica.proxy.ClientProxy;
-import com.github.lunatrius.schematica.proxy.CommonProxy;
+package rth.network;
 
 import aceart.schemes.Schemes;
 import net.minecraft.entity.player.EntityPlayerMP;
@@ -46,10 +43,10 @@ public class ServerTileUpdater implements IMessageHandler<UpdateMessage, IMessag
 			//Schemes.proxy.controller.setSchematic(message.schemeTag);
 		}
 		else if(op == 4) {
-			ClientProxy.controller.switchFlip();
+			Schemes.proxy.controller.switchFlip();
 		}
 		else if (op == 5) {
-			ClientProxy.controller.switchRotations();
+			Schemes.proxy.controller.switchRotations();
 		}
 	}
 	

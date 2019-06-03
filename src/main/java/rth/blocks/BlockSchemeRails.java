@@ -1,7 +1,7 @@
-package blocks;
+package rth.blocks;
 
 import net.minecraft.block.material.Material;
-import railwaytoheaven.RailwayToHeaven;
+import rth.RailwayToHeaven;
 
 public class BlockSchemeRails extends BlockSchemeController {
 

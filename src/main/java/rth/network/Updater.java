@@ -1,11 +1,11 @@
-package aceart.network;
+package rth.network;
 
 
 import aceart.api.ServerUpdater;
 import net.minecraft.util.math.BlockPos;
-import proxy.ClientProxy;
-import proxy.CommonProxy;
-import railwaytoheaven.RailwayToHeaven;
+import rth.RailwayToHeaven;
+import rth.proxy.ClientProxy;
+import rth.proxy.CommonProxy;
 
 public class Updater implements ServerUpdater {
 

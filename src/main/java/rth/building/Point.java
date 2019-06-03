@@ -1,4 +1,4 @@
-package railway.building;
+package rth.building;
 
 import net.minecraft.util.math.BlockPos;
 

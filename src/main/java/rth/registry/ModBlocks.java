@@ -1,11 +1,11 @@
-package registry;
+package rth.registry;
 
 
-import aceart.blocks.tiles.ContainsTile;
-import blocks.BlockSchemeRails;
-import blocks.BlockSchemeController;
-import blocks.BlockSchemeSaver;
 import net.minecraft.block.material.Material;
+import rth.blocks.BlockSchemeController;
+import rth.blocks.BlockSchemeRails;
+import rth.blocks.BlockSchemeSaver;
+import rth.tiles.ContainsTile;
 
 
 public class ModBlocks {

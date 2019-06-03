@@ -1,8 +1,5 @@
-package proxy;
+package rth.proxy;
 
-import aceart.network.ServerTileUpdater;
-import aceart.network.UpdateMessage;
-import aceart.schemes.Schemes;
 import net.minecraft.util.math.BlockPos;
 import net.minecraftforge.fml.common.event.FMLInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPostInitializationEvent;
@@ -10,13 +7,15 @@ import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
 import net.minecraftforge.fml.common.network.NetworkRegistry;
 import net.minecraftforge.fml.common.network.simpleimpl.SimpleNetworkWrapper;
 import net.minecraftforge.fml.relauncher.Side;
-import railwaytoheaven.RailwayToHeaven;
+import rth.RailwayToHeaven;
+import rth.network.ServerTileUpdater;
+import rth.network.UpdateMessage;
+import rth.registry.Registrator;
 
 public abstract class CommonProxy {
 
 	public static final SimpleNetworkWrapper wrapper = 
-			NetworkRegistry.INSTANCE.newSimpleChannel(RailwayToHeaven.MODID + RailwayToHeaven.VERSION);
-	;
+			NetworkRegistry.INSTANCE.newSimpleChannel(RailwayToHeaven.MODID);
 	private static final byte MESSAGE_ID = 64;
 
 	public abstract boolean isSameController(BlockPos currentPos);
@@ -26,6 +25,9 @@ public abstract class CommonProxy {
 //		wrapper = NetworkRegistry.INSTANCE.newSimpleChannel(RailwayToHeaven.MODID + RailwayToHeaven.VERSION);
 		wrapper.registerMessage(ServerTileUpdater.class, UpdateMessage.class, 
 				MESSAGE_ID, Side.SERVER);
+		
+	
+		
 
 	}
 	public void init(final FMLInitializationEvent event) {
@@ -33,12 +35,12 @@ public abstract class CommonProxy {
 	}
 
 	public void postInit(final FMLPostInitializationEvent event) {
-//		com.github.lunatrius.schematica.proxy.CommonProxy proxy = Schemes.proxy;
+//		com.github.lunatrius.schematica.proxy.CommonProxy rth.proxy = Schemes.proxy;
 //
-//		proxy.controller = (Controlling) ModBlocks.CONTROLLER;
-//		proxy.saver = (Saving) ModBlocks.SAVER;
-//		proxy.updater = new Updater();
-//		proxy.printAreaConstructor = new BoxBuilder();
+//		rth.proxy.controller = (Controlling) ModBlocks.CONTROLLER;
+//		rth.proxy.saver = (Saving) ModBlocks.SAVER;
+//		rth.proxy.updater = new Updater();
+//		rth.proxy.printAreaConstructor = new BoxBuilder();
 		
 	}
 

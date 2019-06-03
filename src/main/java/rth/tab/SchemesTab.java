@@ -1,11 +1,11 @@
-package tab;
+package rth.tab;
 
 import net.minecraft.block.Block;
-import net.minecraft.block.material.Material;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
-import railwaytoheaven.RailwayToHeaven;
+import rth.RailwayToHeaven;
+import rth.registry.ModBlocks;
 
 public class SchemesTab extends CreativeTabs {
 	
@@ -16,9 +16,7 @@ public class SchemesTab extends CreativeTabs {
 
 	@Override
 	public ItemStack getTabIconItem() {
-		//return new ItemStack(Item.getItemFromBlock((Block) ModBlocks.RAILS));
-		Block b = new Block(Material.CACTUS);
-		return new ItemStack(Item.getItemFromBlock((Block) b));
+		return new ItemStack(Item.getItemFromBlock((Block) ModBlocks.RAILS));
 	}
 	
 	@Override

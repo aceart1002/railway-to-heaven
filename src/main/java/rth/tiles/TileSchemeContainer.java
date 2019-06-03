@@ -1,4 +1,4 @@
-package aceart.blocks.tiles;
+package rth.tiles;
 
 import com.github.lunatrius.schematica.world.schematic.SchematicAlpha;
 import com.github.lunatrius.schematica.world.schematic.SchematicFormat;

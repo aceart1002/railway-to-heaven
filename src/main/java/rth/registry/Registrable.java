@@ -1,4 +1,4 @@
-package registry;
+package rth.registry;
 
 import net.minecraftforge.registries.IForgeRegistryEntry;
 

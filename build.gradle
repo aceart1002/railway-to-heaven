@@ -1,7 +1,14 @@
 buildscript {
     repositories {
         jcenter()
-        maven { url = "http://files.minecraftforge.net/maven" }
+       maven {
+            name = 'gradle plugins'
+            url "https://plugins.gradle.org/m2/"
+        }
+        maven {
+            name = 'forge'
+            url = 'http://files.minecraftforge.net/maven'
+        }
     }
     dependencies {
         classpath 'net.minecraftforge.gradle:ForgeGradle:2.3-SNAPSHOT'
@@ -10,9 +17,12 @@ buildscript {
 apply plugin: 'net.minecraftforge.gradle.forge'
 //Only edit below this line, the above code adds and enables the necessary things for Forge to be setup.
 
+ext.build = System.getenv().BUILD_NUMBER ?: 'git'
+ext.modversion = "1.8.0.${build}"
 
-version = "1.0"
-group = "railwaytoheaven" // http://maven.apache.org/guides/mini/guide-naming-conventions.html
+
+version = "1.12.2-${modversion}"
+group = "railway.to.heaven" // http://maven.apache.org/guides/mini/guide-naming-conventions.html
 archivesBaseName = "RailwayToHeaven"
 
 sourceCompatibility = targetCompatibility = '1.8' // Need this here so eclipse task generates correctly.
@@ -33,7 +43,32 @@ minecraft {
     // makeObfSourceJar = false // an Srg named sources jar is made by default. uncomment this to disable.
 }
 
+processResources {
+    // this will ensure that this task is redone when the versions change.
+    inputs.property "version", project.version
+    inputs.property "mcversion", project.minecraft.version
 
+    // replace stuff in mcmod.info, nothing else
+    from(sourceSets.main.resources.srcDirs) {
+        include 'mcmod.info'
+                
+        // replace version and mcversion
+        expand([
+                'modid'          : project.name,
+                'version'        : modversion,
+                'mcversion'      : project.minecraft.version,
+                'forgeversion'   : "14.23.0.2512",
+                'minforgeversion': project.hasProperty('version_minforge') ? project.version_minforge : "14.23.0.2512",
+                'coreversion'    : "1.2.0.42"
+        ])
+       // expand 'version':project.version, 'mcversion':project.minecraft.version
+    }
+        
+    // copy everything else except the mcmod.info
+  //  from(sourceSets.main.resources.srcDirs) {
+    //    exclude 'mcmod.info'
+  //  }
+}
 repositories {
     ivy {
         name = 'lunatrius\' ivy repo'
@@ -47,21 +82,9 @@ dependencies {
     
 }
 
-processResources {
-    // this will ensure that this task is redone when the versions change.
-    inputs.property "version", project.version
-    inputs.property "mcversion", project.minecraft.version
 
-    // replace stuff in mcmod.info, nothing else
-    from(sourceSets.main.resources.srcDirs) {
-        include 'mcmod.info'
-                
-        // replace version and mcversion
-        expand 'version':project.version, 'mcversion':project.minecraft.version
-    }
-        
-    // copy everything else except the mcmod.info
-    from(sourceSets.main.resources.srcDirs) {
-        exclude 'mcmod.info'
+def commonManifest = {
+    if (project.hasProperty('extra_fmlat')) {
+        attributes 'FMLAT': project.extra_fmlat
     }
 }

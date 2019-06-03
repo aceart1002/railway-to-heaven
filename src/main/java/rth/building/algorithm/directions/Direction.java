@@ -1,8 +1,8 @@
-package railway.building.algorithm.directions;
+package rth.building.algorithm.directions;
 
 import java.util.Random;
 
-import railway.building.algorithm.RailRoad;
+import rth.building.algorithm.RailRoad;
 
 public abstract class Direction {
 

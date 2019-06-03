@@ -1,9 +1,8 @@
-package blocks;
+package rth.blocks;
 
 import com.github.lunatrius.schematica.proxy.ClientProxy;
 
 import aceart.api.Saving;
-import aceart.blocks.tiles.TileSavePoints;
 import aceart.schemes.Schemes;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.state.IBlockState;
@@ -15,7 +14,8 @@ import net.minecraft.util.EnumHand;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.Explosion;
 import net.minecraft.world.World;
-import railwaytoheaven.RailwayToHeaven;
+import rth.RailwayToHeaven;
+import rth.tiles.TileSavePoints;
 
 public class BlockSchemeSaver extends AbstractTileBlock<TileSavePoints> implements Saving {
 

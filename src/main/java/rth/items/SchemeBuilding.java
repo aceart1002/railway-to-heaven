@@ -1,4 +1,4 @@
-package items;
+package rth.items;
 
 
 import com.github.lunatrius.schematica.client.printer.SchematicPrinter;
@@ -8,7 +8,7 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.util.EnumHand;
 import net.minecraftforge.client.event.MouseEvent;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
-import proxy.ClientProxy;
+import rth.proxy.ClientProxy;
 
 public class SchemeBuilding {
 	

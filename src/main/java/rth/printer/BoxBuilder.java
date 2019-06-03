@@ -1,4 +1,4 @@
-package printer;
+package rth.printer;
 
 import java.util.ArrayList;
 import java.util.Collections;

@@ -1,9 +1,8 @@
-package blocks;
+package rth.blocks;
 
 import com.github.lunatrius.schematica.proxy.ClientProxy;
 
 import aceart.api.Controlling;
-import aceart.blocks.tiles.TileSchemeContainer;
 import aceart.schemes.Schemes;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.state.IBlockState;
@@ -14,7 +13,8 @@ import net.minecraft.util.EnumHand;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.Explosion;
 import net.minecraft.world.World;
-import railwaytoheaven.RailwayToHeaven;
+import rth.RailwayToHeaven;
+import rth.tiles.TileSchemeContainer;
 
 public class BlockSchemeController extends AbstractTileBlock<TileSchemeContainer> 
 implements Controlling {
@@ -35,7 +35,7 @@ implements Controlling {
 		currentData = new BlockData(getTileEntity(world, position), position, world, 
 				displaceOrNot());
 
-		ClientProxy.controller = this;
+		Schemes.proxy.controller = this;
 
 		if (world.isRemote) {
 
